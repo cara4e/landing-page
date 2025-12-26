@@ -62,7 +62,7 @@ const SECTIONS = [
   { id: 'faq', label: '常见问题' }
 ];
 
-const FullPageSection = ({ id, children, bg = "bg-[#0d0e12]" }: { id: string, children: React.ReactNode, bg?: string }) => (
+const FullPageSection = ({ id, children, bg = "" }: { id: string, children: React.ReactNode, bg?: string }) => (
   <section 
     id={id} 
     className={`min-h-screen w-full relative flex items-center justify-center px-6 snap-start snap-always ${bg}`}
@@ -115,7 +115,7 @@ export default function TailscaleDerpPage() {
   };
 
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory bg-[#0d0e12] text-slate-300 scroll-smooth">
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory gradient-bg text-slate-300 scroll-smooth">
       {/* 右上角客服二维码 */}
       <div className="fixed top-8 right-12 z-[110] group">
         <div className="bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-md cursor-help hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 shadow-xl shadow-black/20">
@@ -164,9 +164,6 @@ export default function TailscaleDerpPage() {
           </button>
         ))}
       </div>
-
-      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 blur-[150px] rounded-full -z-10" />
-      <div className="fixed bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 blur-[120px] rounded-full -z-10" />
 
       {/* ================= 第一页：特点展示 ================= */}
       <FullPageSection id="features">
@@ -233,7 +230,7 @@ export default function TailscaleDerpPage() {
       </FullPageSection>
 
       {/* ================= 第二页：套餐对比 ================= */}
-      <FullPageSection id="pricing" bg="bg-[#0f1115]">
+      <FullPageSection id="pricing">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white">透明简单的定价方案</h2>
           <p className="text-slate-500 mt-4 font-light">选择最适合您的中继加速方案</p>
@@ -358,7 +355,7 @@ export default function TailscaleDerpPage() {
       </FullPageSection>
 
       {/* ================= 第四页：FAQ ================= */}
-      <FullPageSection id="faq" bg="bg-[#0d0e12]">
+      <FullPageSection id="faq">
         <div className="w-full">
           <div className="text-center mb-16">
             <h3 className="text-3xl font-bold text-white">常见问题 FAQ</h3>

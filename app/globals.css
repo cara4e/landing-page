@@ -3,3 +3,19 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.gradient-bg {
+
+  background-color: #0b0e14; /* 基础深色 */
+
+  background-attachment: fixed;
+
+  background-image: 
+
+    radial-gradient(at 0% 0%, hsla(190, 80%, 20%, 0.3) 0px, transparent 50%), /* 左上角青色 */
+
+    radial-gradient(at 100% 0%, hsla(260, 50%, 20%, 0.3) 0px, transparent 50%), /* 右上角紫色 */
+
+    radial-gradient(at 50% 100%, hsla(20, 40%, 15%, 0.2) 0px, transparent 50%); /* 底部微光 */
+
+}
