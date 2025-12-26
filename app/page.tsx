@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Check, Zap, Globe, Activity, ChevronDown, Cpu, Server, Lock, QrCode } from 'lucide-react';
 import NodeStatus from '@/components/NodeStatusDashboard';
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   initial: { 
     opacity: 0, 
     scale: 0.98,
@@ -16,15 +16,15 @@ const sectionVariants = {
     opacity: 1, 
     scale: 1,
     filter: "blur(0px)",
-    y: 0 
-  },
-  transition: { 
-    duration: 1.2, 
-    ease: [0.22, 1, 0.36, 1] 
+    y: 0,
+    transition: { 
+      duration: 1.2, 
+      ease: [0.22, 1, 0.36, 1] 
+    }
   }
 };
 
-const gridContainerVariants = {
+const gridContainerVariants: Variants = {
   initial: { opacity: 0 },
   whileInView: {
     opacity: 1,
@@ -35,7 +35,7 @@ const gridContainerVariants = {
   }
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   initial: { opacity: 0, y: 30, scale: 0.9 },
   whileInView: { 
     opacity: 1, 
