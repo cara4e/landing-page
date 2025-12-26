@@ -11,7 +11,6 @@ interface Node {
     status: 'optimal' | 'good';
 }
 
-// 移除了 status 为 'busy' 的成都节点
 const INITIAL_NODES: Node[] = [
     { id: 'bj', name: '北京 BGP', region: '华北枢纽', basePing: 8, status: 'optimal' },
     { id: 'sh', name: '上海 10G', region: '华东枢纽', basePing: 12, status: 'optimal' },
@@ -36,33 +35,33 @@ export default function NodeStatus() {
     }, []);
 
     return (
-        <div className="space-y-6">
+        <div className="h-full flex flex-col">
             {/* 状态看板主体 - 仅展示在线节点 */}
-            <div className="bg-white/5 rounded-[24px] p-5 border border-white/10 backdrop-blur-sm shadow-2xl divide-y divide-white/5">
+            <div className="bg-white/5 rounded-[24px] p-6 border border-white/10 backdrop-blur-sm shadow-2xl divide-y divide-white/5 flex-grow flex flex-col justify-between">
                 {nodes.map((node) => {
                     const isOptimal = node.status === 'optimal';
 
                     return (
                         <div
                             key={node.id}
-                            className="flex items-center justify-between py-3.5 group"
+                            className="flex items-center justify-between py-4 group flex-grow"
                         >
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-4">
                                 {/* 状态指示灯 */}
-                                <span className="relative flex h-2 w-2 shrink-0">
+                                <span className="relative flex h-2.5 w-2.5 shrink-0">
                                     {isOptimal && (
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     )}
-                                    <span className={`relative inline-flex rounded-full h-2 w-2 ${isOptimal ? 'bg-green-500' : 'bg-yellow-500'
+                                    <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isOptimal ? 'bg-green-500' : 'bg-yellow-500'
                                         }`}></span>
                                 </span>
 
                                 {/* 节点名称和区域 */}
-                                <div className="flex flex-col leading-tight">
-                                    <span className="font-bold text-sm text-white tracking-wide group-hover:text-blue-400 transition-colors">
+                                <div className="flex flex-col gap-1">
+                                    <span className="font-bold text-base text-white tracking-wide group-hover:text-blue-400 transition-colors">
                                         {node.name}
                                     </span>
-                                    <span className="text-[9px] text-slate-500 uppercase font-mono tracking-wider">
+                                    <span className="text-[11px] text-slate-500 uppercase font-mono tracking-wider">
                                         {node.region}
                                     </span>
                                 </div>
@@ -70,10 +69,10 @@ export default function NodeStatus() {
 
                             {/* Ping 值显示 */}
                             <div className="text-right">
-                                <span className={`font-mono text-xl font-black transition-all duration-500 ${isOptimal ? 'text-green-400' : 'text-yellow-400'
+                                <span className={`font-mono text-4xl font-black transition-all duration-500 ${isOptimal ? 'text-green-400' : 'text-yellow-400'
                                     }`}>
                                     {node.currentPing || node.basePing}
-                                    <small className="text-[9px] ml-0.5 opacity-60 font-normal">ms</small>
+                                    <small className="text-sm ml-1 opacity-60 font-bold">ms</small>
                                 </span>
                             </div>
                         </div>
@@ -82,7 +81,7 @@ export default function NodeStatus() {
             </div>
 
             {/* 底部小字背书 */}
-            <div className="px-4 flex justify-between items-center">
+            <div className="px-4 mt-6 flex justify-between items-center shrink-0">
                 <p className="text-[10px] text-slate-600 uppercase tracking-[0.2em] leading-relaxed">
                     数据每 2.5s 自动更新
                 </p>
