@@ -117,13 +117,13 @@ export default function TailscaleDerpPage() {
   return (
     <div className="h-screen overflow-y-auto snap-y snap-mandatory gradient-bg text-slate-300 scroll-smooth">
       {/* 右上角客服二维码 */}
-      <div className="fixed top-8 right-12 z-[110] group">
-        <div className="bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-md cursor-help hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 shadow-xl shadow-black/20">
+      <div className="fixed top-8 right-12 z-[110] group outline-none" tabIndex={0}>
+        <div className="bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-md hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 shadow-xl shadow-black/20">
           <QrCode className="w-6 h-6 text-slate-400 group-hover:text-blue-400 transition-colors" />
         </div>
         
         {/* Hover Tooltip */}
-        <div className="absolute top-full right-0 mt-4 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0">
+        <div className="absolute top-full right-0 mt-4 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus:pointer-events-auto group-active:pointer-events-auto transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 group-focus:translate-y-0 group-active:translate-y-0">
           <div className="bg-[#16181d] border border-blue-500/30 p-5 rounded-[24px] shadow-[0_0_40px_rgba(59,130,246,0.25)] w-48 text-center backdrop-blur-lg">
             <div className="bg-white p-2 rounded-xl mb-4 shadow-inner">
               <img 
@@ -247,7 +247,7 @@ export default function TailscaleDerpPage() {
                     { id: 'PRO', name: '专业版', price: '¥19.9', featured: true },
                     { id: 'BIZ', name: '企业版', price: '¥99' }
                   ].map((plan) => (
-                    <th key={plan.id} className={`py-8 px-6 text-center w-1/4 group relative cursor-help ${plan.featured ? 'bg-blue-600/20 rounded-t-3xl' : ''}`}>
+                    <th key={plan.id} tabIndex={0} className={`py-8 px-6 text-center w-1/4 group relative outline-none ${plan.featured ? 'bg-blue-600/20 rounded-t-3xl' : ''}`}>
                       {plan.featured && (
                         <div className="absolute -top-4 inset-x-0 flex justify-center">
                           <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-[9px] font-black tracking-widest">最受欢迎</span>
@@ -260,7 +260,7 @@ export default function TailscaleDerpPage() {
                       </div>
                       <div className="text-blue-500 font-bold">{plan.price} <span className="text-xs text-slate-500 font-normal">/月</span></div>
                       
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 z-[100]">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus:pointer-events-auto group-active:pointer-events-auto transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 group-focus:translate-y-0 group-active:translate-y-0 z-[100]">
                         <div className="bg-[#16181d] border border-blue-500/30 p-4 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)] w-44 text-center backdrop-blur-md">
                           <div className="bg-white p-2 rounded-xl mb-3">
                             <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/pay/${plan.id}`} alt="QR" className="w-full h-full" />
